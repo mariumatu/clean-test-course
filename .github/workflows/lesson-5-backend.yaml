@@ -5,7 +5,18 @@ on:
     branches:
       - lesson-5
 jobs:
+  Security_test:
+    runs-on: unbuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    name: Execute the PyCharm security test
+    steps:
+      - uses: actions/checkout@v4
+      - name: PyCharm Python Security Scanner
+        uses: tonybaloney/pycharm-security@1.25.1
   build_and_test:
+    needs: [Security_test]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -39,3 +50,4 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
       - name: '**PLACEHOLDER** Deploy to Elastic Beanstalk'
         run: echo Placeholder for Deployment
+

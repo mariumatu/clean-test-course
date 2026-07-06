@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "clean-test-course",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
